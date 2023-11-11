@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Topbar */
+.topbar {
+  position: relative;
+  z-index: 1000; /* 숫자는 필요에 따라 조절 가능 */
+}
+
+/* 드롭다운 박스 */
+.dropdown-box {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 1001; /* Topbar의 z-index보다 높은 숫자로 설정 */
+  /* 나머지 스타일들 */
+}
