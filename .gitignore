@@ -4,3 +4,6 @@
 # Ignore node_modules in nest-backend
 /nest-backend/node_modules
 /nest-backend/dist
+/nest-backend/dist/app.module.js
+/nest-backend/dist/app.module.js.map
+/nest-backend/dist/tsconfig.build.tsbuildinfo
