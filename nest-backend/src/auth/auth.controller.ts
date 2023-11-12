@@ -26,6 +26,6 @@ export class AuthController {
   @Get('/check-token')
   @UseGuards(AuthGuard)
   checkToken(@Request() req) {
-    return req.user;
+    return req.email;
   }
 }

@@ -25,7 +25,7 @@ let AuthController = class AuthController {
         return this.authService.login(authCredentialsDto);
     }
     checkToken(req) {
-        return req.user;
+        return req.email;
     }
 };
 exports.AuthController = AuthController;
