@@ -36,7 +36,7 @@ const Inventory = () => {
             <SelectBox options={equipments} />
             {/* 대시보드 내용 */}
             {/* grid */}
-            <div className="grid grid-cols-1 gap-[30px] max-w-sm mx-auto md:max-w-none mx-0">
+            <div className="grid grid-cols-1 gap-[30px] max-w-sm mx-auto md:max-w-none">
               {/* card 3 */}
               <Card title="부품 소모량" content="This is some text content." />
 

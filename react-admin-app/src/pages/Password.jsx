@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Topbar from "../components/Topbar";
+import axios from "axios";
+
 export default function Password() {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleChangePassword = () => {
+  const handleChangePassword = async (e) => {
+    e.preventDefault(); // 기본 제출 동작 방지
+
     // 간단한 유효성 검사
     if (!currentPassword || !newPassword || !confirmPassword) {
       setErrorMessage("모든 필드를 입력하세요.");
@@ -19,12 +23,19 @@ export default function Password() {
       return;
     }
 
-    // 여기에서 실제 패스워드 변경 로직을 추가할 수 있습니다.
-    // 패스워드 변경 성공 또는 실패에 따라 상태를 업데이트할 수 있습니다.
-
-    // 임시로 성공 메시지를 설정합니다.
-    setErrorMessage("");
-    alert("패스워드가 성공적으로 변경되었습니다.");
+    try {
+      // 서버에 비밀번호 업데이트 요청을 보냅니다.
+      const response = await axios.post(
+        `http://localhost:3000/user/:id/update-password`,
+        {
+          password: newPassword,
+        }
+      );
+      window.alert("비밀번호가 성공적으로 변경되었습니다.");
+    } catch (error) {
+      window.alert("회원가입에 실패했습니다.");
+      console.error("비밀번호 변경에 실패했습니다:", error);
+    }
   };
 
   return (

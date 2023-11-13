@@ -38,13 +38,12 @@ const Topbar = () => {
 
       {/* 오른쪽 드롭다운 박스 */}
       <div className="relative group">
-        <button className="text-black focus:outline-none group">
-          {/* 관리자 아이콘 */}
-          <IoPersonCircle className="h-6 w-6 fill-current" />
-        </button>
-
-        {/* 드롭다운 박스 */}
-        <DropdownMenu items={profileMenuItems} />
+        <Link to="/password">
+          <button className="text-black focus:outline-none group">
+            {/* 관리자 아이콘 */}
+            <IoPersonCircle className="h-6 w-6" />
+          </button>
+        </Link>
       </div>
     </div>
   );

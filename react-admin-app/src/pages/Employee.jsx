@@ -38,7 +38,7 @@ export default function Employee() {
             {/* SelectBox */}
             <SelectBox options={locations} />
             {/* grid */}
-            <div className="grid grid-cols-1 gap-[30px] max-w-sm mx-auto md:max-w-none mx-0">
+            <div className="grid grid-cols-1 gap-[30px] max-w-sm mx-auto md:max-w-none">
               {/* Table */}
               <EmployeeTable
                 data={employeeData}

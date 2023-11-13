@@ -17,7 +17,7 @@ const DoughnutChart = () => {
     ],
   };
 
-  return <Doughnut data={data} />;
+  return <Doughnut data={data} className="h-[100px]" />;
 };
 
 export default DoughnutChart;

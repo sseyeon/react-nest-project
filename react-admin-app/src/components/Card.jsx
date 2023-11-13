@@ -1,14 +1,14 @@
 // Card.jsx
 import React from "react";
 
-export default function Card({ title, content }) {
+export default function Card({ title, content, height }) {
   return (
-    <div className="bg-white rounded-lg border border-[#e4e4e5] h-[300px] mb-4 relative overflow-hidden group transition">
+    <div className="bg-white rounded-lg border border-[#e4e4e5]  mb-4 relative overflow-hidden group transition">
       {/* title */}
       <div className="mt-3 ms-3 font-semibold">
         <h2>{title}</h2>
       </div>
-      <div className="w-full h-full flex justify-center items-center">
+      <div className={`w-full flex justify-center items-center ${height}`}>
         {/* content */}
         <div className="w-100 mx-auto flex justify-center items-center">
           {typeof content === "string" ? (
