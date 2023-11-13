@@ -17,6 +17,7 @@ const auth_service_1 = require("./auth.service");
 const common_1 = require("@nestjs/common");
 const auth_credentials_dto_1 = require("./dto/auth-credentials.dto");
 const auth_gards_1 = require("./auth.gards");
+const swagger_1 = require("@nestjs/swagger");
 let AuthController = class AuthController {
     constructor(authService) {
         this.authService = authService;
@@ -43,6 +44,8 @@ let AuthController = class AuthController {
 exports.AuthController = AuthController;
 __decorate([
     (0, common_1.Post)('/login'),
+    (0, swagger_1.ApiOperation)({ summary: '로그인' }),
+    (0, swagger_1.ApiCreatedResponse)({ description: '성공', type: String }),
     __param(0, (0, common_1.Body)(common_1.ValidationPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [auth_credentials_dto_1.AuthCredentialsDto]),
@@ -50,6 +53,8 @@ __decorate([
 ], AuthController.prototype, "login", null);
 __decorate([
     (0, common_1.Get)('/check-token'),
+    (0, swagger_1.ApiOperation)({ summary: '토큰 확인' }),
+    (0, swagger_1.ApiCreatedResponse)({ description: '성공', type: String }),
     (0, common_1.UseGuards)(auth_gards_1.AuthGuard),
     __param(0, (0, common_1.Request)()),
     __metadata("design:type", Function),
@@ -58,6 +63,8 @@ __decorate([
 ], AuthController.prototype, "checkToken", null);
 __decorate([
     (0, common_1.Post)('/refresh-token'),
+    (0, swagger_1.ApiOperation)({ summary: '토큰 갱신' }),
+    (0, swagger_1.ApiCreatedResponse)({ description: '성공', type: String }),
     __param(0, (0, common_1.Body)('accessToken')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
@@ -65,6 +72,7 @@ __decorate([
 ], AuthController.prototype, "refreshAccessToken", null);
 exports.AuthController = AuthController = __decorate([
     (0, common_1.Controller)('auth'),
+    (0, swagger_1.ApiTags)('auth'),
     __metadata("design:paramtypes", [auth_service_1.AuthService])
 ], AuthController);
 //# sourceMappingURL=auth.controller.js.map
