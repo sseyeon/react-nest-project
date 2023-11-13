@@ -7,4 +7,7 @@ export declare class AuthController {
         accessToken: string;
     }>;
     checkToken(req: any): any;
+    refreshAccessToken(accessToken: string): Promise<{
+        newAccessToken: string;
+    }>;
 }

@@ -27,6 +27,18 @@ let AuthController = class AuthController {
     checkToken(req) {
         return req.email;
     }
+    async refreshAccessToken(accessToken) {
+        try {
+            const result = await this.authService.refreshAccessToken(accessToken);
+            return result;
+        }
+        catch (error) {
+            if (error instanceof common_1.UnauthorizedException) {
+                throw new common_1.UnauthorizedException(error.message);
+            }
+            throw error;
+        }
+    }
 };
 exports.AuthController = AuthController;
 __decorate([
@@ -44,6 +56,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "checkToken", null);
+__decorate([
+    (0, common_1.Post)('/refresh-token'),
+    __param(0, (0, common_1.Body)('accessToken')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "refreshAccessToken", null);
 exports.AuthController = AuthController = __decorate([
     (0, common_1.Controller)('auth'),
     __metadata("design:paramtypes", [auth_service_1.AuthService])
