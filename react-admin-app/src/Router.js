@@ -29,7 +29,6 @@ const checkToken = async (accessToken) => {
         }
       );
       if (response.status === 200) {
-        console.log("토큰 유효성 검사 결과:", response.data);
         // 토큰이 유효한 경우
         return true;
       } else {
@@ -53,6 +52,7 @@ const PrivateRoute = ({ element, path }) => {
     const checkAndNavigate = async () => {
       if (accessToken && checkToken(accessToken)) {
         // 토큰이 유효한 경우
+        // 토큰 시간을 연장 시켜주는 API 호출
         return;
       } else {
         // 토큰이 유효하지 않은 경우

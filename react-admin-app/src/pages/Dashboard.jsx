@@ -21,7 +21,19 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/dashboard");
+        const token = localStorage.getItem("accessToken");
+
+        if (!token) {
+          // 토큰이 없으면 console.log
+          console.error("JWT token not found. Redirect to login page.");
+          return;
+        }
+
+        const response = await axios.get("http://localhost:3000/dashboard", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
         setDashboardData(response.data.returnData);
       } catch (error) {

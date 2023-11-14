@@ -20,11 +20,12 @@ export default function Login() {
         password,
       });
       localStorage.setItem("accessToken", response.data.accessToken);
-      // console.log("Login success:", response.data);
+
       setAccessToken(response.data.accessToken);
-      // console.log("RECOIL accessToken ", accessToken);
+
       navigate("/dashboard");
     } catch (error) {
+      window.alert("로그인에 실패했습니다.");
       console.error("Login failed:", error);
       // 로그인 실패 처리
     }

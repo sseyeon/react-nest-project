@@ -11,12 +11,12 @@ const Inventory = () => {
     quantity: Math.floor(Math.random() * 100),
   }));
 
-  const itemsPerPage = 5;
-  const [currentPage, setCurrentPage] = useState(1);
+  // const itemsPerPage = 5;
+  // const [currentPage, setCurrentPage] = useState(1);
 
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
+  // const handlePageChange = (pageNumber) => {
+  //   setCurrentPage(pageNumber);
+  // };
   const locations = ["본사", "양산점", "창원점"];
   const equipments = ["SM485P", "SP1-C", "SCM1-DP", "HM520W MF"];
   return (
@@ -38,16 +38,16 @@ const Inventory = () => {
             {/* grid */}
             <div className="grid grid-cols-1 gap-[30px] max-w-sm mx-auto md:max-w-none">
               {/* card 3 */}
-              <Card title="부품 소모량" content="This is some text content." />
+              {/* <Card title="부품 소모량" content="This is some text content." /> */}
 
               {/* Table */}
-              <Table
+              {/* <Table
                 data={data}
                 currentPage={currentPage}
                 itemsPerPage={itemsPerPage}
                 handlePageChange={handlePageChange}
                 theadData={["ID", "Name", "Quantity"]}
-              />
+              /> */}
             </div>
           </div>
         </main>
